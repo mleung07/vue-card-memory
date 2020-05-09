@@ -1,58 +1,58 @@
 (function(e) {
   function t(t) {
     for (
-      var r, a, i = t[0], u = t[1], s = t[2], d = 0, f = [];
+      var r, c, i = t[0], u = t[1], s = t[2], d = 0, f = [];
       d < i.length;
       d++
     )
-      (a = i[d]),
-        Object.prototype.hasOwnProperty.call(o, a) && o[a] && f.push(o[a][0]),
-        (o[a] = 0);
+      (c = i[d]),
+        Object.prototype.hasOwnProperty.call(o, c) && o[c] && f.push(o[c][0]),
+        (o[c] = 0);
     for (r in u) Object.prototype.hasOwnProperty.call(u, r) && (e[r] = u[r]);
     l && l(t);
     while (f.length) f.shift()();
-    return c.push.apply(c, s || []), n();
+    return a.push.apply(a, s || []), n();
   }
   function n() {
-    for (var e, t = 0; t < c.length; t++) {
-      for (var n = c[t], r = !0, i = 1; i < n.length; i++) {
+    for (var e, t = 0; t < a.length; t++) {
+      for (var n = a[t], r = !0, i = 1; i < n.length; i++) {
         const u = n[i];
         0 !== o[u] && (r = !1);
       }
-      r && (c.splice(t--, 1), (e = a((a.s = n[0]))));
+      r && (a.splice(t--, 1), (e = c((c.s = n[0]))));
     }
     return e;
   }
   var r = {},
     o = { app: 0 },
-    c = [];
-  function a(t) {
+    a = [];
+  function c(t) {
     if (r[t]) return r[t].exports;
     const n = (r[t] = { i: t, l: !1, exports: {} });
-    return e[t].call(n.exports, n, n.exports, a), (n.l = !0), n.exports;
+    return e[t].call(n.exports, n, n.exports, c), (n.l = !0), n.exports;
   }
-  (a.m = e),
-    (a.c = r),
-    (a.d = function(e, t, n) {
-      a.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
+  (c.m = e),
+    (c.c = r),
+    (c.d = function(e, t, n) {
+      c.o(e, t) || Object.defineProperty(e, t, { enumerable: !0, get: n });
     }),
-    (a.r = function(e) {
+    (c.r = function(e) {
       "undefined" !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (a.t = function(e, t) {
-      if ((1 & t && (e = a(e)), 8 & t)) return e;
+    (c.t = function(e, t) {
+      if ((1 & t && (e = c(e)), 8 & t)) return e;
       if (4 & t && "object" === typeof e && e && e.__esModule) return e;
       const n = Object.create(null);
       if (
-        (a.r(n),
+        (c.r(n),
         Object.defineProperty(n, "default", { enumerable: !0, value: e }),
         2 & t && "string" != typeof e)
       )
         for (const r in e)
-          a.d(
+          c.d(
             n,
             r,
             function(t) {
@@ -61,7 +61,7 @@
           );
       return n;
     }),
-    (a.n = function(e) {
+    (c.n = function(e) {
       const t =
         e && e.__esModule
           ? function() {
@@ -70,18 +70,18 @@
           : function() {
               return e;
             };
-      return a.d(t, "a", t), t;
+      return c.d(t, "a", t), t;
     }),
-    (a.o = function(e, t) {
+    (c.o = function(e, t) {
       return Object.prototype.hasOwnProperty.call(e, t);
     }),
-    (a.p = "/");
+    (c.p = "/vue-card-memory/");
   let i = (window["webpackJsonp"] = window["webpackJsonp"] || []),
     u = i.push.bind(i);
   (i.push = t), (i = i.slice());
   for (let s = 0; s < i.length; s++) t(i[s]);
   var l = u;
-  c.push([0, "chunk-vendors"]), n();
+  a.push([0, "chunk-vendors"]), n();
 })({
   0: function(e, t, n) {
     e.exports = n("cd49");
@@ -90,6 +90,13 @@
   "239b": function(e, t, n) {
     "use strict";
     const r = n("1426"),
+      o = n.n(r);
+    o.a;
+  },
+  "436a": function(e, t, n) {},
+  "51de": function(e, t, n) {
+    "use strict";
+    const r = n("436a"),
       o = n.n(r);
     o.a;
   },
@@ -106,14 +113,7 @@
     o.a;
   },
   8259: function(e, t, n) {},
-  "8c63": function(e, t, n) {
-    "use strict";
-    const r = n("9d03"),
-      o = n.n(r);
-    o.a;
-  },
   "9c0c": function(e, t, n) {},
-  "9d03": function(e, t, n) {},
   aee2: function(e, t, n) {},
   cd49: function(e, t, n) {
     "use strict";
@@ -143,8 +143,8 @@
           2
         );
       },
-      c = [],
-      a = n("5530"),
+      a = [],
+      c = n("5530"),
       i = function() {
         const e = this,
           t = e.$createElement,
@@ -216,12 +216,12 @@
       m = r["a"].extend({
         name: "Card",
         props: { x: Number, y: Number },
-        computed: Object(a["a"])({}, Object(s["c"])(["getCellById"]), {
+        computed: Object(c["a"])({}, Object(s["c"])(["getCellById"]), {
           myCard: function() {
             return this.getCellById(this.x, this.y);
           }
         }),
-        methods: Object(a["a"])({}, Object(s["b"])(["flipCard"]), {
+        methods: Object(c["a"])({}, Object(s["b"])(["flipCard"]), {
           handleClick: function() {
             this.myCard &&
               (this.myCard.flipped ||
@@ -231,26 +231,26 @@
         })
       }),
       b = m,
-      h = (n("8c63"), n("2877")),
-      v = Object(h["a"])(b, f, p, !1, null, "829bc6f0", null),
-      g = v.exports,
-      y = r["a"].extend({
+      h = (n("51de"), n("2877")),
+      v = Object(h["a"])(b, f, p, !1, null, "2bde9884", null),
+      y = v.exports,
+      g = r["a"].extend({
         name: "Row",
-        components: { Card: g },
+        components: { Card: y },
         props: { y: Number },
-        computed: Object(a["a"])({}, Object(s["c"])(["getCol"]))
+        computed: Object(c["a"])({}, Object(s["c"])(["getCol"]))
       }),
-      C = y,
+      C = g,
       w = (n("5fb5"), Object(h["a"])(C, l, d, !1, null, "2a8394e2", null)),
       O = w.exports,
       j = r["a"].extend({
         name: "Game",
         components: { Row: O },
-        computed: Object(a["a"])({}, Object(s["c"])(["getRow"])),
+        computed: Object(c["a"])({}, Object(s["c"])(["getRow"])),
         mounted: function() {
           this.distributeCard();
         },
-        methods: Object(a["a"])({}, Object(s["b"])(["distributeCard"]))
+        methods: Object(c["a"])({}, Object(s["b"])(["distributeCard"]))
       }),
       x = j,
       _ = (n("239b"), Object(h["a"])(x, i, u, !1, null, "74b1ffa2", null)),
@@ -271,7 +271,7 @@
       E = [],
       R = r["a"].extend({
         name: "Modal",
-        methods: Object(a["a"])({}, Object(s["b"])(["restartGame"]))
+        methods: Object(c["a"])({}, Object(s["b"])(["restartGame"]))
       }),
       S = R,
       N = (n("e557"), Object(h["a"])(S, M, E, !1, null, "e90e7096", null)),
@@ -279,13 +279,13 @@
       A = {
         name: "App",
         components: { Game: k, Modal: P },
-        computed: Object(a["a"])({}, Object(s["c"])(["getWin"]))
+        computed: Object(c["a"])({}, Object(s["c"])(["getWin"]))
       },
       G = A,
-      W = (n("5c0b"), Object(h["a"])(G, o, c, !1, null, null, null)),
+      W = (n("5c0b"), Object(h["a"])(G, o, a, !1, null, null, null)),
       $ = W.exports,
       B = n("9483");
-    Object(B["a"])("".concat("/", "service-worker.js"), {
+    Object(B["a"])("".concat("/vue-card-memory/", "service-worker.js"), {
       ready: function() {
         console.log(
           "App is being served from cache by a service worker.\nFor more details, visit https://goo.gl/AFskqB"
@@ -444,4 +444,4 @@
     o.a;
   }
 });
-//# sourceMappingURL=app.9300dae3.js.map
+//# sourceMappingURL=app.c6c1eeff.js.map

@@ -11,16 +11,18 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
 importScripts(
-  "/vue-card-memory/precache-manifest.64d2c55e527ab461834a157e45d2e817.js"
+  "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "vue-card-memory"});
+importScripts(
+  "/vue-card-memory/precache-manifest.791d66c16e04a49ad042075c34dd6b5f.js"
+);
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+workbox.core.setCacheNameDetails({ prefix: "vue-card-memory" });
+
+self.addEventListener("message", event => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });

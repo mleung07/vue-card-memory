@@ -92,7 +92,7 @@ export default Vue.extend({
     border: 5px solid black;
   }
   .back {
-    background-image: url("/img/bg.png");
+    background-image: url("../assets/bg.png");
     background-size: 15px;
     background-repeat: repeat;
     background-position: center;
