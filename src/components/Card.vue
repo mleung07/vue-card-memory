@@ -24,6 +24,7 @@ const handleClick = () => {
   <div class="cell" v-if="myCard">
     <div
       class="card"
+      role="button"
       :class="{
         flipped: myCard.status === 'flipped',
         matched: myCard.status === 'matched',
