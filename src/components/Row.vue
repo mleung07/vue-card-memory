@@ -1,29 +1,20 @@
+<script setup lang="ts">
+import { useGameStore } from '../stores/game';
+import Card from './Card.vue';
+defineProps<{
+  y: number;
+}>();
+const store = useGameStore();
+
+</script>
+
 <template>
-  <div class="row" v-if="getCol">
-    <Card v-for="i in getCol" :y="y" :x="i" :key="i"></Card>
+  <div class="row">
+    <Card v-for="i in store.column" :y="y" :x="i" :key="i"></Card>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { mapGetters } from "vuex";
-import Card from "./Card.vue";
-
-export default Vue.extend({
-  name: "Row",
-  components: {
-    Card
-  },
-  props: {
-    y: Number
-  },
-  computed: {
-    ...mapGetters(["getCol"])
-  }
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .row {
   display: table-row;
 }

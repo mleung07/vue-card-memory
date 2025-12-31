@@ -1,25 +1,19 @@
+<script setup lang="ts">
+import { useGameStore } from '../stores/game';
+const store = useGameStore();
+
+</script>
+
 <template>
   <div class="modal">
     <div class="modal-content">
       <h2>You win!</h2>
-      <div class="restart" @click="restartGame">Restart</div>
+      <div class="restart" @click="store.restart">Restart</div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { mapActions } from "vuex";
-
-export default Vue.extend({
-  name: "Modal",
-  methods: {
-    ...mapActions(["restartGame"])
-  }
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .modal {
   position: fixed;
   z-index: 1;

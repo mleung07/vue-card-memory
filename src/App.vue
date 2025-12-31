@@ -1,31 +1,17 @@
-<template>
-  <div id="app">
-    <Modal v-show="getWin"></Modal>
-    <template>
-      <h1>Vue card memory game</h1>
-      <Game></Game>
-    </template>
-  </div>
-</template>
-
-<script>
-import Game from "@/components/Game.vue";
-import Modal from "@/components/Modal.vue";
-import { mapGetters } from "vuex";
-
-export default {
-  name: "App",
-  components: {
-    Game,
-    Modal
-  },
-  computed: {
-    ...mapGetters(["getWin"])
-  }
-};
+<script setup lang="ts">
+import { RouterView } from 'vue-router';
+import { useGameStore } from './stores/game';
+import Modal from './components/Modal.vue';
+const store = useGameStore();
 </script>
 
-<style lang="scss">
+<template>
+  <h1>Vue card memory game</h1>
+  <Modal v-if="store.win" />
+  <RouterView />
+</template>
+
+<style>
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

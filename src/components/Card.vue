@@ -1,10 +1,32 @@
+<script setup lang="ts">
+import { computed } from 'vue';
+import { useGameStore } from '../stores/game';
+const store = useGameStore();
+
+const props = defineProps<{
+  x: number;
+  y: number;
+}>();
+const myCard = computed(() => store.getCellById(props.x, props.y));
+const handleClick = () => {
+  // TODO: throttle clicks
+  if (!myCard.value) {
+    return;
+  }
+  if (myCard.value?.status !== 'covered') {
+    return;
+  }
+  store.flipCard({ x: props.x, y: props.y });
+};
+</script>
+
 <template>
   <div class="cell" v-if="myCard">
     <div
       class="card"
       :class="{
-        flipped: myCard.flipped,
-        matched: myCard.matched
+        flipped: myCard.status === 'flipped',
+        matched: myCard.status === 'matched'
       }"
       @click="handleClick"
     >
@@ -16,40 +38,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { mapGetters, mapActions } from "vuex";
-import { Card } from "@/store/type";
-
-export default Vue.extend({
-  name: "Card",
-  props: {
-    x: Number,
-    y: Number
-  },
-  computed: {
-    ...mapGetters(["getCellById"]),
-
-    myCard: function(): Card {
-      return this.getCellById(this.x, this.y);
-    }
-  },
-  methods: {
-    ...mapActions(["flipCard"]),
-    handleClick() {
-      if (!this.myCard) {
-        return;
-      }
-      if (this.myCard.flipped || this.myCard.matched) {
-        return;
-      }
-      this.flipCard({ x: this.x, y: this.y });
-    }
-  }
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .cell {
   display: table-cell;
   padding: 10px;
@@ -98,8 +87,7 @@ export default Vue.extend({
     background-position: center;
   }
 
-  &.flipped,
-  &.matched {
+  &.flipped{
     .back {
       transform: rotateY(180deg);
     }
@@ -107,6 +95,10 @@ export default Vue.extend({
     .front {
       transform: rotateY(0deg);
     }
+  }
+
+  &.matched {
+    visibility: hidden;
   }
 
   .face {

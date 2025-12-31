@@ -1,36 +1,25 @@
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useGameStore } from '../stores/game';
+import Row from './Row.vue';
+const store = useGameStore();
+
+onMounted(() => {
+  store.distributeCard();
+});
+</script>
+
 <template>
   <div class="box">
-    <div class="game" v-if="getRow">
-      <template v-for="i in getRow">
-        <Row :y="i" :key="i" />
+    <div class="game">
+      <template v-for="i in store.row" :key="i">
+        <Row :y="i" />
       </template>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import { mapGetters, mapActions } from "vuex";
-import Row from "./Row.vue";
-
-export default Vue.extend({
-  name: "Game",
-  components: {
-    Row
-  },
-  computed: {
-    ...mapGetters(["getRow"])
-  },
-  mounted: function() {
-    this.distributeCard();
-  },
-  methods: {
-    ...mapActions(["distributeCard"])
-  }
-});
-</script>
-
-<style scoped lang="scss">
+<style scoped>
 .box {
   display: flex;
   align-items: center;
