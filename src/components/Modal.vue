@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { useGameStore } from '../stores/game';
+import { useGameStore } from "../stores/game";
 const store = useGameStore();
-
 </script>
 
 <template>
   <div class="modal">
     <div class="modal-content">
       <h2>You win!</h2>
-      <div class="restart" @click="store.restart">Restart</div>
+      <button class="restart" @click="store.restart">Restart</button>
     </div>
   </div>
 </template>

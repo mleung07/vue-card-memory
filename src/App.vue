@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
-import { useGameStore } from './stores/game';
-import Modal from './components/Modal.vue';
+import { RouterView } from "vue-router";
+import { useGameStore } from "./stores/game";
+import Modal from "./components/Modal.vue";
 const store = useGameStore();
 </script>
 

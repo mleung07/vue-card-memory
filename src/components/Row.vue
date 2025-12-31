@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useGameStore } from '../stores/game';
-import Card from './Card.vue';
+import { useGameStore } from "../stores/game";
+import Card from "./Card.vue";
 defineProps<{
   y: number;
 }>();
 const store = useGameStore();
-
 </script>
 
 <template>

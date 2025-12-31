@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useGameStore } from '../stores/game';
-import Row from './Row.vue';
+import { onMounted } from "vue";
+import { useGameStore } from "../stores/game";
+import Row from "./Row.vue";
 const store = useGameStore();
 
 onMounted(() => {

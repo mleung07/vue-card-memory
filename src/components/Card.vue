@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useGameStore } from '../stores/game';
+import { computed } from "vue";
+import { useGameStore } from "../stores/game";
 const store = useGameStore();
 
 const props = defineProps<{
@@ -13,7 +13,7 @@ const handleClick = () => {
   if (!myCard.value) {
     return;
   }
-  if (myCard.value?.status !== 'covered') {
+  if (myCard.value?.status !== "covered") {
     return;
   }
   store.flipCard({ x: props.x, y: props.y });
@@ -26,7 +26,7 @@ const handleClick = () => {
       class="card"
       :class="{
         flipped: myCard.status === 'flipped',
-        matched: myCard.status === 'matched'
+        matched: myCard.status === 'matched',
       }"
       @click="handleClick"
     >
@@ -87,7 +87,7 @@ const handleClick = () => {
     background-position: center;
   }
 
-  &.flipped{
+  &.flipped {
     .back {
       transform: rotateY(180deg);
     }
